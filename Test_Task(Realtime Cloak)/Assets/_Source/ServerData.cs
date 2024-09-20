@@ -2,9 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Test : MonoBehaviour
+public class ServerData : MonoBehaviour
 {
-    private float updateTimer = 0;
+    [SerializeField] private TimeView _timeView;
+    [SerializeField] private CloakController _cloakController;
+
+    private float _syncTimer;
+
+    public void Contructor(TimeView timeView, CloakController cloakController)
+    {
+        _timeView = timeView;
+        _cloakController = cloakController;
+    }
 
     void Start()
     {
@@ -23,18 +32,19 @@ public class Test : MonoBehaviour
         else
         {
             Cloak cloak = JsonUtility.FromJson<Cloak>(www.downloadHandler.text);
-            Debug.Log(cloak.GetTime());
+            _cloakController.SetCloak(cloak);
+            _timeView.SetTime(cloak.GetTime());
         }
     }
 
     private void Update()
     {
-        if (updateTimer < 10)
-            updateTimer += Time.deltaTime;
-        else if(updateTimer >= 10)
+        if (_syncTimer < 3600)
+            _syncTimer += Time.deltaTime;
+        else if (_syncTimer >= 3600)
         {
             StartCoroutine(GetTime());
-            updateTimer = 0;
+            _syncTimer = 0;
         }
     }
 }
