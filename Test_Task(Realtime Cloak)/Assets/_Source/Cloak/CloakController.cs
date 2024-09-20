@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 namespace CloakTime
 {
@@ -16,24 +17,20 @@ namespace CloakTime
             _secondArrow = secondArrow;
         }
 
-        private Cloak _cloak;
-
-        public void SetCloak(Cloak cloak)
+        public void SetTime(DateTime time)
         {
             DOTween.KillAll();
 
-            _cloak = cloak;
-
             Quaternion secondRot = _secondArrow.rotation;
-            secondRot.eulerAngles = new Vector3(0, 0, -6 * _cloak.GetTime().Second);
+            secondRot.eulerAngles = new Vector3(0, 0, -6 * time.Second);
             _secondArrow.rotation = secondRot;
 
             Quaternion minutRot = _minuteArrow.rotation;
-            minutRot.eulerAngles = new Vector3(0, 0, -6 * _cloak.GetTime().Minute);
+            minutRot.eulerAngles = new Vector3(0, 0, -6 * time.Minute);
             _minuteArrow.rotation = minutRot;
 
             Quaternion hourRot = _hourArrow.rotation;
-            hourRot.eulerAngles = new Vector3(0, 0, -30 * _cloak.GetTime().Hour);
+            hourRot.eulerAngles = new Vector3(0, 0, -30 * time.Hour);
             _hourArrow.rotation = hourRot;
 
             _secondArrow.DORotate(_secondArrow.eulerAngles + new Vector3(0, 0, -6), 1)

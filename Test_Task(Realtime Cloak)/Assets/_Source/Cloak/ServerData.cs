@@ -34,7 +34,7 @@ namespace CloakTime
             else
             {
                 Cloak cloak = JsonUtility.FromJson<Cloak>(www.downloadHandler.text);
-                _cloakController.SetCloak(cloak);
+                _cloakController.SetTime(cloak.GetTime());
                 _timeView.SetTime(cloak.GetTime());
             }
         }
