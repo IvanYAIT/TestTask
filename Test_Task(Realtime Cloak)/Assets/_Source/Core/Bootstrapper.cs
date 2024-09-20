@@ -1,4 +1,4 @@
-using CloakTime;
+﻿using CloakTime;
 using CustomTime;
 using UnityEngine;
 
@@ -13,14 +13,14 @@ namespace Core
         [SerializeField] private CustomTimePanelView customTimePanelView;
         [SerializeField] private TimeView timeView;
         [SerializeField] private ServerData serverData;
-        private CloakController cloakController;
+        private ClockController clockController;
         private CustomTimePanelController customTimePanelController;
  
         void Start()
         {
-            cloakController = new CloakController(hourArrow, minuteArrow, secondArrow);
-            customTimePanelController = new CustomTimePanelController(customTimePanelView, cloakController, timeView);
-            serverData.Contructor(timeView, cloakController);
+            clockController = new ClockController(hourArrow, minuteArrow, secondArrow);
+            customTimePanelController = new CustomTimePanelController(customTimePanelView, clockController, timeView);
+            serverData.Contructor(timeView, clockController);
         }
     }
 }

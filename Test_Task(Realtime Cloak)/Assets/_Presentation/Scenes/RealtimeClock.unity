@@ -2247,7 +2247,7 @@ GameObject:
   - component: {fileID: 1142350386}
   - component: {fileID: 1142350387}
   m_Layer: 0
-  m_Name: Test
+  m_Name: ServerData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2511,7 +2511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4138794, y: 1.4139404}
+  m_AnchoredPosition: {x: -1.4138184, y: 1.4139404}
   m_SizeDelta: {x: 14.1382, y: 16.9658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408703399

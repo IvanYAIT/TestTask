@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -6,15 +6,14 @@ namespace CloakTime
 {
     public class ServerData : MonoBehaviour
     {
-        [SerializeField] private TimeView _timeView;
-        [SerializeField] private CloakController _cloakController;
-
+        private TimeView _timeView;
+        private ClockController _clockController;
         private float _syncTimer;
 
-        public void Contructor(TimeView timeView, CloakController cloakController)
+        public void Contructor(TimeView timeView, ClockController cloakController)
         {
             _timeView = timeView;
-            _cloakController = cloakController;
+            _clockController = cloakController;
         }
 
         void Start()
@@ -24,7 +23,7 @@ namespace CloakTime
 
         IEnumerator GetTime()
         {
-            UnityWebRequest www = UnityWebRequest.Get("https://yandex.com/time/sync.json");
+            UnityWebRequest www = UnityWebRequest.Get("http://worldtimeapi.org/api/timezone/Europe/Moscow");
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
@@ -33,9 +32,10 @@ namespace CloakTime
             }
             else
             {
-                Cloak cloak = JsonUtility.FromJson<Cloak>(www.downloadHandler.text);
-                _cloakController.SetTime(cloak.GetTime());
-                _timeView.SetTime(cloak.GetTime());
+                Clock clock = JsonUtility.FromJson<Clock>(www.downloadHandler.text);
+                Debug.Log(clock.GetTime());
+                _clockController.SetTime(clock.GetTime());
+                _timeView.SetTime(clock.GetTime());
             }
         }
 

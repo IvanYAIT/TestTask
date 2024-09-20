@@ -1,4 +1,4 @@
-using CloakTime;
+﻿using CloakTime;
 using System;
 
 namespace CustomTime
@@ -6,10 +6,10 @@ namespace CustomTime
     public class CustomTimePanelController
     {
         private CustomTimePanelView _customTimeView;
-        private CloakController _controller;
+        private ClockController _controller;
         private TimeView _timeView;
 
-        public CustomTimePanelController(CustomTimePanelView customTimeView, CloakController controller, TimeView timeView)
+        public CustomTimePanelController(CustomTimePanelView customTimeView, ClockController controller, TimeView timeView)
         {
             _customTimeView = customTimeView;
             _controller = controller;

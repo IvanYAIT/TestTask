@@ -1,16 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using System;
 
 namespace CloakTime
 {
-    public class CloakController
+    public class ClockController
     {
         private Transform _hourArrow;
         private Transform _minuteArrow;
         private Transform _secondArrow;
 
-        public CloakController(Transform hourArrow, Transform minuteArrow, Transform secondArrow)
+        public ClockController(Transform hourArrow, Transform minuteArrow, Transform secondArrow)
         {
             _hourArrow = hourArrow;
             _minuteArrow = minuteArrow;
