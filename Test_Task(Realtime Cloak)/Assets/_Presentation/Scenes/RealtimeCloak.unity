@@ -131,7 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121380993}
-  - component: {fileID: 121380994}
   m_Layer: 5
   m_Name: Cloak
   m_TagString: Untagged
@@ -162,18 +161,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 67}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &121380994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121380992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c8a57d72604e8b428e0363f83e3c747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &257349133
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +632,6 @@ MonoBehaviour:
   secondArrow: {fileID: 1460717068}
   timeView: {fileID: 1972230529}
   serverData: {fileID: 1142350387}
-  cloakController: {fileID: 121380994}
 --- !u!1 &853736274
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeView: {fileID: 0}
-  _cloakController: {fileID: 0}
 --- !u!1 &1313822330
 GameObject:
   m_ObjectHideFlags: 0

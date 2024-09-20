@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using CloakTime;
 using UnityEngine;
 
-public class Bootstrapper : MonoBehaviour
+namespace Core
 {
-    [SerializeField] private Transform hourArrow;
-    [SerializeField] private Transform minuteArrow;
-    [SerializeField] private Transform secondArrow;
-
-    [SerializeField] private TimeView timeView;
-    [SerializeField] private ServerData serverData;
-    [SerializeField] private CloakController cloakController;
-
-    void Start()
+    public class Bootstrapper : MonoBehaviour
     {
-        cloakController.Constructor(hourArrow, minuteArrow, secondArrow);
-        serverData.Contructor(timeView, cloakController);
+        [SerializeField] private Transform hourArrow;
+        [SerializeField] private Transform minuteArrow;
+        [SerializeField] private Transform secondArrow;
+
+        [SerializeField] private TimeView timeView;
+        [SerializeField] private ServerData serverData;
+        private CloakController cloakController;
+
+        void Start()
+        {
+            cloakController = new CloakController(hourArrow, minuteArrow, secondArrow);
+            serverData.Contructor(timeView, cloakController);
+        }
     }
 }
